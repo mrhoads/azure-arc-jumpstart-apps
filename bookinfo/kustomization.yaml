@@ -1,0 +1,6 @@
+sapiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - bookinfo.yaml
+  - bookinfo-gateway.yaml
+  - virtual-service-all-v1.yaml
