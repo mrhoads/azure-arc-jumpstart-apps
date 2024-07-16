@@ -5,3 +5,4 @@ resources:
   - bookinfo-gateway.yaml
   - virtual-service-all-v1.yaml
   - destination-rule-all.yaml
+  - virtual-service-reviews-50-v3.yaml
