@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - bookinfo.yaml
   - bookinfo-gateway.yaml
+  - virtual-service-reviews-50-v3.yaml
