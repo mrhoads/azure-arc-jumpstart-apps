@@ -4,4 +4,4 @@ resources:
   - bookinfo.yaml
   - bookinfo-gateway.yaml
   - destination-rule-all.yaml
-  - virtual-service-reviews-50-v3.yaml
+  - virtual-service-reviews-all-v1.yaml
