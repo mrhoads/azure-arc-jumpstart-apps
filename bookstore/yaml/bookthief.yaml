@@ -1,40 +1,41 @@
 ---
-# Create bookbuyer Service Account
+# Create bookthief ServiceAccount
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: bookbuyer
-  namespace: bookbuyer
+  name: bookthief
+  namespace: bookthief
 ---
-# Create bookbuyer Deployment
+# Create bookthief Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bookbuyer
-  namespace: bookbuyer
+  name: bookthief
+  namespace: bookthief
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookbuyer
-      version: v1
+      app: bookthief
   template:
     metadata:
       labels:
-        app: bookbuyer
+        app: bookthief
         version: v1
     spec:
-      serviceAccountName: bookbuyer
+      serviceAccountName: bookthief
       nodeSelector:
         kubernetes.io/arch: amd64
         kubernetes.io/os: linux
       containers:
-        - name: bookbuyer
-          image: openservicemesh/bookbuyer:latest-main
+        - name: bookthief
+          image: openservicemesh/bookthief:latest-main
           imagePullPolicy: Always
-          command: ["/bookbuyer"]
+          command: ["/bookthief"]
           env:
             - name: "BOOKSTORE_NAMESPACE"
               value: bookstore
             - name: "BOOKSTORE_SVC"
               value: bookstore
+            - name: "BOOKTHIEF_EXPECTED_RESPONSE_CODE"
+              value: "503"
